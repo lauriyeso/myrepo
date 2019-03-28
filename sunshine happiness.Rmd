@@ -1,0 +1,55 @@
+---
+title: "Sol solito calientame un poquito"
+author: "Laura de la Puente"
+date: "28 de marzo de 2019"
+output: word_document
+bibliography: references.bib
+---
+##INTRODUCTION
+
+Who has not used imagination to take some sun in the beach in a very stressfull moment?
+
+##METHODS
+
+```{r}
+datos <- read.table("data.txt", header=TRUE)
+```
+
+Entonces, voy a a hacer un modelo de la felicidad:
+
+```{r}
+modelo <- lm(happiness~sunshine, data=datos)
+```
+
+We interviewed `r nrow(datos)` people and fitted a linear model
+
+##RESULTS
+
+We found that happiness is positively related with sunshine hours touching the skin, help to finish with raquitism and suicidees
+```{r}
+library(visreg)
+visreg(modelo)
+```
+que viene de esta tablita, gente
+```{r}
+library(knitr)
+library(xtable)
+kable(xtable(modelo))
+
+
+```
+
+##CONCLUSIONS
+
+Pues eso, a tomar el sol
+
+##REFERENCES
+
+[@Rezende_2007]
+
+```{r}
+install.packages('tinytex')
+tinytex::install_tinytex()
+install.packages("rticles")  
+```
+
